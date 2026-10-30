@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ScriptScan — Prescription Data-Entry Assistant</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <header>
+    <h1>ScriptScan</h1>
+    <p class="subtitle">
+      AI prescription data-entry assistant — reads the fax, you verify.
+      <span id="model-badge" class="pill"></span>
+    </p>
+  </header>
+
+  <main>
+    <section id="upload-section">
+      <div id="dropzone" class="dropzone" tabindex="0" role="button"
+           aria-label="Upload prescription image">
+        <p class="dz-text">Drag &amp; drop a prescription image here</p>
+        <p class="dz-sub">or click to choose a PNG / JPG file</p>
+        <input type="file" id="file-input" accept="image/png,image/jpeg" hidden />
+      </div>
+
+      <div id="preview-wrap" class="hidden">
+        <img id="preview" alt="Prescription preview" />
+        <div class="controls">
+          <label class="threshold-control">
+            Review threshold:
+            <input type="number" id="threshold" min="0" max="1" step="0.01" value="0.90" />
+            <span class="hint">fields below this are flagged REVIEW</span>
+          </label>
+          <button id="extract-btn" class="btn btn-primary">Extract fields</button>
+          <button id="clear-btn" class="btn btn-ghost">Clear</button>
+        </div>
+      </div>
+
+      <div id="api-key-warning" class="banner banner-error hidden">
+        ANTHROPIC_API_KEY is not set in the environment. Extraction will not work until
+        you set it and restart the server.
+      </div>
+    </section>
+
+    <section id="status-section">
+      <div id="error-box" class="banner banner-error hidden"></div>
+      <div id="loading" class="loading hidden">
+        <span class="spinner"></span> Reading prescription…
+      </div>
+    </section>
+
+    <section id="results-section" class="hidden">
+      <div id="mask-status" class="banner banner-ok hidden"></div>
+
+      <details id="mask-preview-block" class="hidden">
+        <summary>Show the masked image that was sent to Claude</summary>
+        <p class="hint">Patient-identifying regions were blacked out locally (on this
+          machine) before the image left for extraction.</p>
+        <img id="mask-preview" alt="Masked image sent to Claude" />
+      </details>
+
+      <div id="phi-warning" class="banner banner-error hidden">
+        <strong>⚠ Possible PHI still detected.</strong> Even after local masking, the model
+        flagged patient-identifying information in this image. Review before proceeding.
+      </div>
+
+      <div class="results-header">
+        <h2>Extracted fields</h2>
+        <span id="legibility-badge" class="badge"></span>
+      </div>
+
+      <div id="warnings-panel" class="warnings hidden">
+        <h3>Warnings</h3>
+        <ul id="warnings-list"></ul>
+      </div>
+
+      <form id="results-form" autocomplete="off"></form>
+
+      <div class="results-actions">
+        <button id="copy-btn" class="btn btn-primary" type="button">
+          Copy verified fields
+        </button>
+        <span id="copy-feedback" class="copy-feedback"></span>
+      </div>
+
+      <details id="benchmark-block">
+        <summary>Record for benchmark (optional)</summary>
+        <p class="hint">
+          Save these values for the head-to-head accuracy report. Stored locally in
+          <code>benchmark_data.json</code> — de-identified field values only, never the image.
+        </p>
+        <label>Filename key:
+          <input type="text" id="bm-filename" placeholder="fax_001.png" />
+        </label>
+        <div class="bm-buttons">
+          <button class="btn btn-ghost" data-source="ground_truth" type="button">
+            Save as Ground Truth
+          </button>
+          <button class="btn btn-ghost" data-source="de_assistant" type="button">
+            Save as DE Assistant
+          </button>
+          <button class="btn btn-ghost" data-source="scriptscan" type="button">
+            Save as ScriptScan
+          </button>
+        </div>
+        <span id="bm-feedback" class="copy-feedback"></span>
+      </details>
+
+      <details id="raw-block">
+        <summary>Raw model output (debug)</summary>
+        <pre id="raw-output"></pre>
+      </details>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      Runs locally · the only external call is to the Anthropic API for extraction ·
+      no telemetry · no PHI stored by default · the pharmacist verifies every field.
+    </p>
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

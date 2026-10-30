@@ -1,0 +1,5 @@
+# Dev/test dependencies (install with: pip install -r requirements-dev.txt)
+-r requirements.txt
+pytest>=8.0
+httpx>=0.27          # required by fastapi.testclient
+Pillow>=10.0         # used to generate dummy test fixtures

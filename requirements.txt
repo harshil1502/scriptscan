@@ -1,0 +1,12 @@
+fastapi>=0.110
+uvicorn[standard]>=0.27
+python-multipart>=0.0.9
+
+# Local PHI masking (runs before the model call). Also needs the Tesseract binary:
+#   macOS: brew install tesseract
+Pillow>=10.0
+pytesseract>=0.3.10
+
+# Only needed for the "api" backend (SCRIPTSCAN_BACKEND=api). The default "cli" backend
+# drives the local Claude Code CLI and does not import this.
+anthropic>=0.40

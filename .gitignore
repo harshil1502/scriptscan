@@ -1,0 +1,32 @@
+# --- PHI / test data: NEVER commit ---------------------------------------
+# Prescription images and any recorded field values are health information.
+benchmark_data.json
+*.png
+*.jpg
+*.jpeg
+*.pdf
+faxes/
+samples/
+test_faxes/
+test_data/
+# Ground-truth / DE-Assistant value files can be derived from real faxes:
+truth/
+de/
+
+# --- secrets --------------------------------------------------------------
+.env
+.env.*
+
+# --- python ---------------------------------------------------------------
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+*.egg-info/
+.pytest_cache/
+
+# --- os / editor ----------------------------------------------------------
+.DS_Store
+.idea/
+.vscode/

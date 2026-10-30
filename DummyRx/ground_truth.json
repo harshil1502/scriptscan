@@ -1,0 +1,106 @@
+{
+  "F1_wegovy-1.png": {
+    "drug_name": "Ozempic",
+    "drug_strength": "0.5 mg/dose",
+    "dosage_form": "Pen Injector",
+    "sig_raw": "0.25 mg 1 time weekly for 4 weeks",
+    "prescribed_qty": "1 pen",
+    "prescriber_name": "Dr. Helena Boardman"
+  },
+  "faxed_F1_wegovy-1.png": {
+    "drug_name": "Ozempic",
+    "drug_strength": "0.5 mg/dose",
+    "dosage_form": "Pen Injector",
+    "sig_raw": "0.25 mg 1 time weekly for 4 weeks",
+    "prescribed_qty": "1 pen",
+    "prescriber_name": "Dr. Helena Boardman"
+  },
+  "F1_humira-1.png": {
+    "drug_name": "Trulicity",
+    "drug_strength": "1.5 mg/0.5 mL",
+    "dosage_form": "Pen Injector",
+    "sig_raw": "1.5 mg subcutaneously once weekly",
+    "prescribed_qty": "4 pens",
+    "prescriber_name": "Dr. Samuel Okonkwo"
+  },
+  "faxed_F1_humira-1.png": {
+    "drug_name": "Trulicity",
+    "drug_strength": "1.5 mg/0.5 mL",
+    "dosage_form": "Pen Injector",
+    "sig_raw": "1.5 mg subcutaneously once weekly",
+    "prescribed_qty": "4 pens",
+    "prescriber_name": "Dr. Samuel Okonkwo"
+  },
+  "F2_pristiq-1.png": {
+    "drug_name": "PRISTIQ",
+    "drug_strength": "50 MG",
+    "dosage_form": "TABLET",
+    "sig_raw": "1 Tablet(s) Once daily X 100 Day(s) starting on 2026-Jun-18",
+    "no_refills": "3",
+    "prescribed_qty": "100",
+    "days_supply": "100",
+    "dosage_interval": "Once daily",
+    "date_written": "2026-Jun-18",
+    "prescriber_name": "Dr. Angela K. Workman",
+    "prescriber_license": "047465"
+  },
+  "faxed_F2_pristiq-1.png": {
+    "drug_name": "PRISTIQ",
+    "drug_strength": "50 MG",
+    "dosage_form": "TABLET",
+    "sig_raw": "1 Tablet(s) Once daily X 100 Day(s) starting on 2026-Jun-18",
+    "no_refills": "3",
+    "prescribed_qty": "100",
+    "days_supply": "100",
+    "dosage_interval": "Once daily",
+    "date_written": "2026-Jun-18",
+    "prescriber_name": "Dr. Angela K. Workman",
+    "prescriber_license": "047465"
+  },
+  "F2_atorvastatin-1.png": {
+    "drug_name": "ATORVASTATIN",
+    "drug_strength": "40 MG",
+    "dosage_form": "TABLET",
+    "sig_raw": "1 Tablet(s) Once daily at bedtime X 90 Day(s) starting on 2026-Jun-18",
+    "no_refills": "5",
+    "prescribed_qty": "90",
+    "days_supply": "90",
+    "dosage_interval": "Once daily at bedtime",
+    "date_written": "2026-Jun-18",
+    "prescriber_name": "Dr. Angela K. Workman",
+    "prescriber_license": "047465"
+  },
+  "faxed_F2_atorvastatin-1.png": {
+    "drug_name": "ATORVASTATIN",
+    "drug_strength": "40 MG",
+    "dosage_form": "TABLET",
+    "sig_raw": "1 Tablet(s) Once daily at bedtime X 90 Day(s) starting on 2026-Jun-18",
+    "no_refills": "5",
+    "prescribed_qty": "90",
+    "days_supply": "90",
+    "dosage_interval": "Once daily at bedtime",
+    "date_written": "2026-Jun-18",
+    "prescriber_name": "Dr. Angela K. Workman",
+    "prescriber_license": "047465"
+  },
+  "F2_multidrug-1.png": {
+    "drug_name": "METFORMIN",
+    "drug_strength": "850 MG",
+    "dosage_form": "TABLET",
+    "sig_raw": "1 Tablet(s) Twice daily with meals X 90 Day(s)",
+    "no_refills": "5",
+    "prescribed_qty": "180",
+    "prescriber_name": "Dr. Angela K. Workman",
+    "prescriber_license": "047465"
+  },
+  "faxed_F2_multidrug-1.png": {
+    "drug_name": "METFORMIN",
+    "drug_strength": "850 MG",
+    "dosage_form": "TABLET",
+    "sig_raw": "1 Tablet(s) Twice daily with meals X 90 Day(s)",
+    "no_refills": "5",
+    "prescribed_qty": "180",
+    "prescriber_name": "Dr. Angela K. Workman",
+    "prescriber_license": "047465"
+  }
+}

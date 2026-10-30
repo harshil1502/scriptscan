@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ScriptScan — Benchmark Harness</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <header>
+    <h1>ScriptScan — Benchmark Harness</h1>
+    <p class="subtitle">
+      Load a fax → enter ground truth once → run extraction → per-field accuracy + misses.
+      <a href="/" class="pill" style="text-decoration:none">← back to extractor</a>
+    </p>
+  </header>
+
+  <main>
+    <section id="upload-section">
+      <div id="dropzone" class="dropzone" tabindex="0" role="button">
+        <p class="dz-text">Drag &amp; drop a prescription image</p>
+        <p class="dz-sub">or click to choose a PNG / JPG file</p>
+        <input type="file" id="file-input" accept="image/png,image/jpeg" hidden />
+      </div>
+
+      <div id="preview-wrap" class="hidden">
+        <img id="preview" alt="Prescription preview" />
+        <label class="threshold-control" style="display:block;margin-top:10px">
+          Filename key:
+          <input type="text" id="bm-filename" placeholder="rx_001.png" />
+          <span class="hint">used to key the benchmark row</span>
+        </label>
+      </div>
+
+      <div id="error-box" class="banner banner-error hidden"></div>
+    </section>
+
+    <section id="grid-section" class="hidden">
+      <h2>Ground truth vs ScriptScan</h2>
+      <p class="hint">
+        Enter the correct value for each field in the <strong>Ground truth</strong>
+        column. Then run extraction to fill the ScriptScan column and score it. The
+        DE Assistant column is optional — enter what HealthWATCH produced for the
+        head-to-head report.
+      </p>
+
+      <div class="bm-actions">
+        <button id="run-btn" class="btn btn-primary" type="button">
+          Run extraction &amp; score
+        </button>
+        <button id="save-truth-btn" class="btn btn-ghost" type="button">Save ground truth</button>
+        <button id="save-de-btn" class="btn btn-ghost" type="button">Save DE Assistant</button>
+        <span id="status-msg" class="copy-feedback"></span>
+        <span id="loading" class="loading hidden"><span class="spinner"></span> extracting…</span>
+      </div>
+
+      <table id="bm-table">
+        <thead>
+          <tr>
+            <th>Field</th>
+            <th>Ground truth</th>
+            <th>ScriptScan</th>
+            <th>DE Assistant</th>
+            <th>Result</th>
+          </tr>
+        </thead>
+        <tbody id="bm-body"></tbody>
+      </table>
+
+      <div id="score-summary" class="score-summary hidden"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Runs locally · scoring is tolerant (case-insensitive, <code>1mg</code> == <code>1 MG</code>) · hard fields marked *</p>
+  </footer>
+
+  <script src="/static/benchmark.js"></script>
+</body>
+</html>
